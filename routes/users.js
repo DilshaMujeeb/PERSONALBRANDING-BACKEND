@@ -6,10 +6,9 @@ const userController = require("../Controller/userController");
 
 const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
-
-const clientid =
-  "605780761256-f5r78mdnrt7hfgnre9o0mgnocscn4no7.apps.googleusercontent.com";
-const clientsecret = "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";
+require('dotenv').config();
+const clientid = process.env.CLIENT_ID;
+const clientsecret = process.env.CLIENT_SECRET ;
 
 passport.use(
   new OAuth2Strategy(

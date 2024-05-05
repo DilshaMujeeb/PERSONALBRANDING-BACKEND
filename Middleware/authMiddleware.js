@@ -1,8 +1,8 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-
+require('dotenv').config()
 const app = express();
-const secretKey = '9895@9747@123';
+const secretKey = process.env.SECRET_KEY;
 
 function authenticateToken(req, res, next) {
   const token = req.headers["authorization"]?.split(" ")[1];

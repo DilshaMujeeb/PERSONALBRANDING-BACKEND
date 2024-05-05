@@ -1,10 +1,12 @@
 var mongoose = require("mongoose");
+require("dotenv").config();
+
 // const {
 //   TrustProductsEvaluationsInstance,
 // } = require("twilio/lib/rest/trusthub/v1/trustProducts/trustProductsEvaluations");
 var ObjectId = require("mongodb").ObjectId;
 const db = mongoose
-  .connect("mongodb://0.0.0.0:27017/cxo_branding", {
+  .connect(process.env.MONGO_CONNECT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
