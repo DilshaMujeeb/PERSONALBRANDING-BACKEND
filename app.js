@@ -22,16 +22,16 @@ const fileUpload = require("express-fileupload");
 // const clientsecret = "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";
 
 var app = express();
-// app.use(cors());
+app.use(cors());
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Allow requests from this origin
-    methods: ["GET", "POST"], // Allow only GET and POST requests
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow only specific headers
-    credentials: true, // Allow credentials to be sent with the request
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // Allow requests from this origin
+//     methods: ["GET", "POST"], // Allow only GET and POST requests
+//     allowedHeaders: ["Content-Type", "Authorization"], // Allow only specific headers
+//     credentials: true, // Allow credentials to be sent with the request
+//   })
+// );
  
 // databse connection
 const db = require("./config/connection");
@@ -46,7 +46,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.options("*", cors());
+// app.options("*", cors());
 
 
 app.use("/", usersRouter);
